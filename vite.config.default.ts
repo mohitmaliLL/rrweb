@@ -140,6 +140,18 @@ export default function (
 
       sourcemap: true,
 
+      // Add worker configuration to prevent inlining
+      worker: {
+        format: 'es',
+        plugins: [],
+        rollupOptions: {
+          output: {
+            format: 'es',
+            inlineDynamicImports: false,
+          },
+        },
+      },
+
       // rollupOptions: {
       //   output: {
       //     manualChunks: {},
